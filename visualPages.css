@@ -1,0 +1,141 @@
+/* controlling the look of the left-hand menu */
+
+body {
+	font: 150% Arial;
+	background: #ffffff;
+	margin: 0;
+	padding: 0;
+	color: #000000;
+}
+
+
+.about {
+   margin-left:30px;
+   text-align:center;
+}
+
+
+.code {
+	background: #EEEEEE;
+}
+
+
+.menu {
+   float:left; 
+   height: 100%; 
+   line-height:110%; 
+   margin-left:-30px; 
+   border-right:1px solid #004D99;
+   padding:1em; 
+   width:178px; 
+}
+
+.menu ul {
+   list-style-type: none;
+}
+
+.menu a {
+   font-weight: bold;
+   text-decoration: none;
+   color:#000000;
+}
+
+.menu li {
+   font-weight: bold;
+   text-decoration: none;
+   color:#000000;
+}
+
+.content a:link {
+   text-decoration: none;
+ }
+
+.content h1 {
+   color:#000000;
+}
+
+
+.content h2 {
+   color:#b82828;
+}
+
+.content h3 {
+   color:#ce36a0;
+}
+
+
+
+.content a:hover {
+	color:#ffCC33;
+}
+
+
+
+.menu a:hover {
+	color:#ffCC33;
+}
+
+
+
+
+.about a {
+   font-weight: bold;
+   text-decoration: none;
+   color:#b12476;
+}
+
+.about a:hover {
+	color:#ffCC33;
+}
+
+
+.text, .personal {
+   margin: 0px 100px 100px 200px;
+   position: absolute;
+   font-family: Helvetica, sans-serif;
+}
+
+.personal a {
+	color:#ffCC33;
+   text-decoration: none;
+}
+
+.personal a:hover {
+	color:#ffCC33;
+}
+
+.personal a:visited {
+   color: #b47515;
+}
+
+
+div.header h1 {
+	margin: 0; 	
+   padding: 10px 0; 
+}
+
+
+div.container {
+   width:100%;
+   margin:0px;
+   line-height:100%;
+}
+div.header, div.footer {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	padding: 0 10px 0 20px; 
+	color:#fbfbfb;
+	background: #000000e0; 
+}
+
+.footer a {
+	color:#33ff81;
+}
+
+h1.header {
+   padding:0;
+   margin:0;
+}
+div.content {
+   margin-left:180px;
+   padding:1em;
+}
