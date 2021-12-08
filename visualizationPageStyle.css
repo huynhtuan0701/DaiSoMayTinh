@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-
 body {
 	font: 100% Verdana, Arial, Helvetica, sans-serif;
 	/*background: #666666; */
@@ -40,10 +39,11 @@ body {
 }
 
 .VisualizationMainPage  #header { 
+	font: 100% Arial;
 	background: #000000; 
 	color:#ffffff;
 	padding: 0 10px 0 20px; 
-  
+	background: url(images/header-img.jpg);
 } 
  
 .VisualizationMainPage #header  A:visited { 

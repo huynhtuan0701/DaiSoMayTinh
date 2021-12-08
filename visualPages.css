@@ -121,10 +121,10 @@ div.container {
    line-height:100%;
 }
 div.header, div.footer {
-	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	font: 100% Arial;
 	padding: 0 10px 0 20px; 
 	color:#fbfbfb;
-	background: #000000e0; 
+	background: url(images/header-img.jpg);
 }
 
 .footer a {

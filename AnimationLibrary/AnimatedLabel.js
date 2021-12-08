@@ -41,38 +41,40 @@ AnimatedLabel.prototype.draw = function(ctx)
 	ctx.globalAlpha = this.alpha;
 	ctx.font = '10px sans-serif';
 
-        var startingXForHighlight = this.x; 
+	var startingXForHighlight = this.x; 
 
-        if (this.highlightIndex >= this.label.length)
-        {
-             this.highlightIndex = -1;
-        }
-        if (this.highlightIndexDirty && this.highlightIndex != -1)
-        {
-              this.leftWidth = ctx.measureText(this.label.substring(0,this.highlightIndex)).width;
-              this.centerWidth = ctx.measureText(this.label.substring(this.highlightIndex, this.highlightIndex+1)).width;
-	      this.highlightIndexDirty = false;
-        }
+	if (this.highlightIndex >= this.label.length)
+	{
+		this.highlightIndex = -1;
+	}
+
+	if (this.highlightIndexDirty && this.highlightIndex != -1)
+	{
+		this.leftWidth = ctx.measureText(this.label.substring(0,this.highlightIndex)).width;
+		this.centerWidth = ctx.measureText(this.label.substring(this.highlightIndex, this.highlightIndex+1)).width;
+		this.highlightIndexDirty = false;
+	}
 	
 	if (this.centering)
 	{
-                if (this.highlightIndex != -1)
-                {
-		    startingXForHighlight = this.x - this.width / 2;
-                    ctx.textAlign = 'left';
-                    ctx.textBaseline   = 'middle'; 
-                }
-                else
-                {
-      		    ctx.textAlign = 'center';
-                    ctx.textBaseline   = 'middle'; 
-                }
+		if (this.highlightIndex != -1)
+		{
+			startingXForHighlight = this.x - this.width / 2;
+			ctx.textAlign = 'left';
+			ctx.textBaseline = 'middle'; 
+		}
+		else
+		{
+			ctx.textAlign = 'center';
+			ctx.textBaseline = 'middle'; 
+		}
 	}
 	else
 	{
 		ctx.textAlign = 'left';
-		ctx.textBaseline   = 'top'; 
+		ctx.textBaseline = 'top'; 
 	}
+
 	if (this.highlighted)
 	{
 	    ctx.strokeStyle = "#ffaaaa";
@@ -87,27 +89,23 @@ AnimatedLabel.prototype.draw = function(ctx)
 	strList = this.label.split("\n");
 	if (strList.length == 1)
 	{
-                if (this.highlightIndex == -1)
-                {
-                    ctx.fillText(this.label, this.x, this.y); 
-                }
-                else
-                {
-                    var leftStr = this.label.substring(0, this.highlightIndex);
-                    var highlightStr = this.label.substring(this.highlightIndex, this.highlightIndex + 1)
-                    var rightStr = this.label.substring(this.highlightIndex + 1)
-                    ctx.fillText(leftStr, startingXForHighlight, this.y)
- 	            ctx.strokeStyle = "#FF0000";
-	            ctx.fillStyle = "#FF0000";
-                    ctx.fillText(highlightStr, startingXForHighlight + this.leftWidth, this.y)
-
-
-	            ctx.strokeStyle = this.labelColor;
-	            ctx.fillStyle = this.labelColor;
-                    ctx.fillText(rightStr, startingXForHighlight + this.leftWidth + this.centerWidth, this.y)
-
-
-                }
+		if (this.highlightIndex == -1)
+		{
+			ctx.fillText(this.label, this.x, this.y); 
+		}
+		else
+		{
+			var leftStr = this.label.substring(0, this.highlightIndex);
+			var highlightStr = this.label.substring(this.highlightIndex, this.highlightIndex + 1)
+			var rightStr = this.label.substring(this.highlightIndex + 1)
+			ctx.fillText(leftStr, startingXForHighlight, this.y)
+			ctx.strokeStyle = "#FF0000";
+			ctx.fillStyle = "#FF0000";
+			ctx.fillText(highlightStr, startingXForHighlight + this.leftWidth, this.y)
+			ctx.strokeStyle = this.labelColor;
+			ctx.fillStyle = this.labelColor;
+			ctx.fillText(rightStr, startingXForHighlight + this.leftWidth + this.centerWidth, this.y)
+		}
 		//this.textWidth = ctx.measureText(this.label).width;
 	}
 	else
@@ -127,11 +125,11 @@ AnimatedLabel.prototype.getAlignLeftPos = function(otherObject)
 {
     if (this.centering)
     {
-	return [otherObject.left() - this.textWidth / 2, this.y = otherObject.centerY()];
+		return [otherObject.left() - this.textWidth / 2, this.y = otherObject.centerY()];
     }
     else
     {
-	return [otherObject.left() - this.textWidth, otherObject.centerY() - 5];
+		return [otherObject.left() - this.textWidth, otherObject.centerY() - 5];
     }
 }
 
@@ -166,11 +164,11 @@ AnimatedLabel.prototype.getAlignRightPos = function(otherObject)
 {
     if (this.centering)
     {
-	return [otherObject.right() + this.textWidth / 2, otherObject.centerY()];
+		return [otherObject.right() + this.textWidth / 2, otherObject.centerY()];
     }
     else
     {
-	return [otherObject.right(), otherObject.centerY() - 5];
+		return [otherObject.right(), otherObject.centerY() - 5];
     }
 }
 
@@ -275,7 +273,7 @@ AnimatedLabel.prototype.centerY = function()
 	}
 	else 
 	{
-		return this.y + 5; // 
+		return this.y + 5;
 	}
    
 }
@@ -337,21 +335,21 @@ AnimatedLabel.prototype.setHighlightIndex = function(hlIndex)
     // Only allow highlight index for labels that don't have End-Of-Line
     if (this.label.indexOf("\n") == -1 && this.label.length > hlIndex)
     {
-         this.highlightIndex = hlIndex;
-         this.highlightIndexDirty = true;
+		this.highlightIndex = hlIndex;
+		this.highlightIndexDirty = true;
     }
     else
     {
-         this.highlightIndex = -1;
+		this.highlightIndex = -1;
 
     }
 }
 
 
  AnimatedLabel.prototype.getTailPointerAttachPos = function(fromX, fromY, anchorPoint)
- {			 
+{			 
 	return this.getClosestCardinalPoint(fromX, fromY); 
- }
+}
 
 AnimatedLabel.prototype.getHeadPointerAttachPos = function (fromX, fromY) 
 {
@@ -378,8 +376,8 @@ function UndoDeleteLabel(id, lab, x, y, centered, color, l, hli)
 	this.labCentered = centered;
 	this.labelColor = color;
 	this.layer = l;
-        this.highlightIndex = hli;
-        this.dirty = true;
+	this.highlightIndex = hli;
+	this.dirty = true;
 }
 
 UndoDeleteLabel.prototype = new UndoBlock();

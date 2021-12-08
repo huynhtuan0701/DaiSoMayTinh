@@ -1,17 +1,17 @@
-function ComparisonSort(am, w, h)
+function Sort(am, w, h)
 {
 	this.init(am, w, h);
 
 }
 
 
-var ARRAY_SIZE_SMALL  = 50;
-var ARRAY_WIDTH_SMALL = 17;
-var ARRAY_BAR_WIDTH_SMALL = 10;
+var ARRAY_SIZE_SMALL  = 15;
+var ARRAY_WIDTH_SMALL = 60;
+var ARRAY_BAR_WIDTH_SMALL = 50;
 var ARRAY_INITIAL_X_SMALL = 15;
 
-var ARRAY_Y_POS = 250;
-var ARRAY_LABEL_Y_POS = 260;
+var ARRAY_Y_POS = 350;
+var ARRAY_LABEL_Y_POS = 360;
 
 var LOWER_ARRAY_Y_POS = 500;
 var LOWER_ARRAY_LABEL_Y_POS = 510;
@@ -33,13 +33,13 @@ var QUICKSORT_LINE_COLOR = "#FF0000";
 
 
 
-ComparisonSort.prototype = new Algorithm();
-ComparisonSort.prototype.constructor = ComparisonSort;
-ComparisonSort.superclass = Algorithm.prototype;
+Sort.prototype = new Algorithm();
+Sort.prototype.constructor = Sort;
+Sort.superclass = Algorithm.prototype;
 
-ComparisonSort.prototype.init = function(am, w, h)
+Sort.prototype.init = function(am, w, h)
 {
-	var sc = ComparisonSort.superclass;
+	var sc = Sort.superclass;
 	var fn = sc.init;
 	fn.call(this,am);
 	this.addControls();
@@ -56,7 +56,7 @@ ComparisonSort.prototype.init = function(am, w, h)
 
 
 
-ComparisonSort.prototype.addControls =  function()
+Sort.prototype.addControls =  function()
 {
 	this.resetButton = addControlToAlgorithmBar("Button", "Randomize Array");
 	this.resetButton.onclick = this.resetCallback.bind(this);
@@ -84,7 +84,7 @@ ComparisonSort.prototype.addControls =  function()
 }
 
 		
-ComparisonSort.prototype.setArraySize = function (small)
+Sort.prototype.setArraySize = function (small)
 {
 	if (small)
 	{
@@ -110,7 +110,7 @@ ComparisonSort.prototype.setArraySize = function (small)
 }
 
 
-ComparisonSort.prototype.resetAll = function(small)
+Sort.prototype.resetAll = function(small)
 {
 	this.animationManager.resetAll();
 	this.setArraySize(!small);
@@ -119,7 +119,7 @@ ComparisonSort.prototype.resetAll = function(small)
 }
 
 
-ComparisonSort.prototype.randomizeArray = function()
+Sort.prototype.randomizeArray = function()
 {
 	this.commands = new Array();
 	for (var i = 0; i < this.array_size; i++)
@@ -143,7 +143,7 @@ ComparisonSort.prototype.randomizeArray = function()
 }
 
 
-ComparisonSort.prototype.swap = function(index1, index2)
+Sort.prototype.swap = function(index1, index2)
 {
 	var tmp = this.arrayData[index1];
 	this.arrayData[index1] = this.arrayData[index2];
@@ -166,7 +166,7 @@ ComparisonSort.prototype.swap = function(index1, index2)
 }
 
 
-ComparisonSort.prototype.createVisualObjects = function()
+Sort.prototype.createVisualObjects = function()
 {
 	this.barObjects = new Array(this.array_size);
 	this.oldBarObjects= new Array(this.array_size);
@@ -217,7 +217,7 @@ ComparisonSort.prototype.createVisualObjects = function()
 	this.lastCreatedIndex = this.nextIndex;
 }
 
-ComparisonSort.prototype.highlightRange  = function(lowIndex, highIndex)
+Sort.prototype.highlightRange  = function(lowIndex, highIndex)
 {
 	for (var i = 0; i < lowIndex; i++)
 	{
@@ -250,7 +250,7 @@ ComparisonSort.prototype.highlightRange  = function(lowIndex, highIndex)
 
 
 
-ComparisonSort.prototype.reset = function()
+Sort.prototype.reset = function()
 {
 	for (var i = 0; i < this.array_size; i++)
 	{
@@ -272,19 +272,19 @@ ComparisonSort.prototype.reset = function()
 }
 
 
-ComparisonSort.prototype.resetCallback = function(event)
+Sort.prototype.resetCallback = function(event)
 {
 	this.randomizeArray();
 }
 
-ComparisonSort.prototype.changeSizeCallback = function(event)
+Sort.prototype.changeSizeCallback = function(event)
 {
 	this.resetAll(this.showLabels);
 }
 
 
 
-ComparisonSort.prototype.insertSortCallback = function(event)
+Sort.prototype.insertSortCallback = function(event)
 {
 	this.animationManager.clearHistory();
 	this.commands = new Array();
@@ -293,7 +293,7 @@ ComparisonSort.prototype.insertSortCallback = function(event)
 	this.commands = new Array();
 }
 
-ComparisonSort.prototype.selectSortCallback = function(event)
+Sort.prototype.selectSortCallback = function(event)
 {
 	this.commands = new Array();
 	this.animationManager.clearHistory();
@@ -330,7 +330,7 @@ ComparisonSort.prototype.selectSortCallback = function(event)
 	}
 	this.animationManager.StartNewAnimation(this.commands);
 }
-ComparisonSort.prototype.bubbleSortCallback = function(event)
+Sort.prototype.bubbleSortCallback = function(event)
 {
 	this.animationManager.clearHistory();
 	
@@ -359,7 +359,7 @@ ComparisonSort.prototype.bubbleSortCallback = function(event)
 	}
 	this.animationManager.StartNewAnimation(this.commands);
 }
-ComparisonSort.prototype.quickSortCallback = function(event)
+Sort.prototype.quickSortCallback = function(event)
 {
 	this.animationManager.clearHistory();
 	
@@ -378,7 +378,7 @@ ComparisonSort.prototype.quickSortCallback = function(event)
 	this.animationManager.StartNewAnimation(this.commands);
 }
 
-ComparisonSort.prototype.doQuickSort = function(low, high)
+Sort.prototype.doQuickSort = function(low, high)
 {
 	this.highlightRange(low,high);
 	if (high <= low)
@@ -486,7 +486,7 @@ ComparisonSort.prototype.doQuickSort = function(low, high)
 	this.highlightRange(low,high);
 }		
 
-ComparisonSort.prototype.mergeSortCallback = function(event)
+Sort.prototype.mergeSortCallback = function(event)
 {
 	this.animationManager.clearHistory();
 	
@@ -495,7 +495,7 @@ ComparisonSort.prototype.mergeSortCallback = function(event)
 	this.animationManager.StartNewAnimation(this.commands);
 }
 
-ComparisonSort.prototype.doMergeSort = function(low,high)
+Sort.prototype.doMergeSort = function(low,high)
 {
 	this.highlightRange(low, high);
 	if (low < high)
@@ -551,7 +551,7 @@ ComparisonSort.prototype.doMergeSort = function(low,high)
 	
 }
 
-ComparisonSort.prototype.shellSortCallback = function(event)
+Sort.prototype.shellSortCallback = function(event)
 {
 	this.animationManager.clearHistory();
 	
@@ -593,7 +593,7 @@ ComparisonSort.prototype.shellSortCallback = function(event)
 	
 }
 
-ComparisonSort.prototype.insertionSortSkip = function(inc, offset)
+Sort.prototype.insertionSortSkip = function(inc, offset)
 {
 	for (var i =inc + offset; i < this.array_size; i = i + inc)
 	{
@@ -624,7 +624,7 @@ ComparisonSort.prototype.insertionSortSkip = function(inc, offset)
 	}
 }
 
-ComparisonSort.prototype.disableUI = function(event)
+Sort.prototype.disableUI = function(event)
 {
 	this.resetButton.disabled = true;
 	this.insertSortButton.disabled = true;
@@ -635,7 +635,7 @@ ComparisonSort.prototype.disableUI = function(event)
 	this.shellSortButton.disabled = true;
 	this.sizeButton.disabled = true;
 }
-ComparisonSort.prototype.enableUI = function(event)
+Sort.prototype.enableUI = function(event)
 {
 	this.resetButton.disabled = false;
 	this.insertSortButton.disabled = false;
@@ -653,5 +653,5 @@ var currentAlg;
 function init()
 {
 	var animManag = initCanvas();
-	currentAlg = new ComparisonSort(animManag, canvas.width, canvas.height);
+	currentAlg = new Sort(animManag, canvas.width, canvas.height);
 }
