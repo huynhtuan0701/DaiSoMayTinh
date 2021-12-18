@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		
-		<title>
-			Binary Search Tree Visualization
-		</title>
-		
 		<!-- css sheet for how the page is laid out -->
-		
 		<link rel="stylesheet" href="visualizationPageStyle.css">
 			
 			
@@ -30,43 +24,58 @@
 		<script type = "application/javascript" src = "AnimationLibrary/ObjectManager.js"> </script>
 		<script type = "application/javascript" src = "AnimationLibrary/AnimationMain.js"> </script>
 		<script type = "application/javascript" src = "AlgorithmLibrary/Algorithm.js"> </script>
-		<script type = "application/javascript" src = "AlgorithmLibrary/BST.js"> </script> 
-				
-			
+		<script type = "application/javascript" src = "AlgorithmLibrary/BST.js"> </script> 		
 	 </head> 
 	
 	<body onload="init();" class="VisualizationMainPage">
-		
-		<div id = "container">
-			
-			<div id="header">  
-				<h1>Binary Search Tree</h1>
-			</div>
-			
-			<div id = "mainContent"> 
-				
-				<div id = "algoControlSection">
-					<!-- Table for buttons to control specific animation (insert/find/etc) -->
-					<!-- (filled in by javascript code specific to the animtion) -->
-					<table id="AlgorithmSpecificControls"> </table> 
+		<nav class="header">
+			<div class="divided-header">
+				<div class="left-header">
+					<div class="home-name-logo">
+						<a href="Algorithms.html">
+							<img class="logo" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt=""/>
+						</a>						
+						<a href="Algorithms.html" class="home-name">Data Structures & Algorithms</a>
+					</div>
+					<div class="structure-name">
+						<a class="home-name">- Binary Search Tree</a>
+					</div>
 				</div>
-				
-					<!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
-									
-				<canvas id="canvas" width="1000" height="500"></canvas>
-				<div id = "generalAnimationControlSection">
-					<!-- Table for buttons to control general animation (play/pause/undo/etc) ->
-					<!-- (filled in by javascript code, specifically AnimationMain.js)  -->
-
-					<table id="GeneralAnimationControls">  </table>		
+				<div class="right-header">
+					<div class="divided-right-header-1">
+						<div class="divided-right-header-2">
+							<a href="https://docs.google.com/spreadsheets/d/1EeUDA4RZc-AMBrH5o85AmOW_Orcr3Lx5jWELspBLGDo/edit?usp=sharing" class="part-right-header">Team</a>
+							<a href="#"	class="part-right-header">Report</a>
+							<a href="#" class="part-right-header">Slide</a>
+						</div>
+					</div>
 				</div>
-				
-			</div> <!-- mainContent -->
-			
-			<div id="footer">  
-				<p><a href="Algorithms.html">Back to homepage</a></p>
 			</div>
+		</nav>
 
-		</div><!-- container -->
+
+		<div class="VisualizationMainPage">
+			<div id = "container">
+				<div id = "mainContent"> 
+					<div id = "algoControlSection">
+						<!-- Table for buttons to control specific animation (insert/find/etc) -->
+						<!-- (filled in by javascript code specific to the animtion) -->
+						<table id="AlgorithmSpecificControls"> </table> 
+					</div>	
+						<!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->					
+					<canvas id="canvas" width="1000" height="500"></canvas>
+					<div id = "generalAnimationControlSection">
+						<!-- Table for buttons to control general animation (play/pause/undo/etc) -->
+						<!-- (filled in by javascript code, specifically AnimationMain.js)  -->
+						<table id="GeneralAnimationControls">  </table>		
+					</div>
+				</div> <!-- mainContent -->
+				
+				<div id="footer">  
+					<p><a href="Algorithms.html">Back to homepage</a></p>
+				</div>
+
+			</div><!-- container -->
+		</div>
 	</body>
 </html>
