@@ -1,97 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="https://cdn.tailwindcss.com"></script>
-		<title>Algorithm and Data structure</title>
-	</head>
-	<body class="bg-indigo-500/40">
-		<!-- This example requires Tailwind CSS v2.0+ -->
-		<nav class="bg-indigo-500/60 shadow-lg">
-			<div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-				<div class="relative flex items-center justify-between h-16">
-					<div
-						class="
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<title>Algorithm and Data structure</title>
+</head>
+
+<body class="bg-indigo-500/50">
+	<!-- This example requires Tailwind CSS v2.0+ -->
+	<nav class="bg-indigo-600/60 shadow-lg shadow-indigo-500/50">
+		<div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+			<div class="relative flex items-center justify-between h-16">
+				<div class="
 							absolute
 							inset-y-0
 							left-0
 							flex
 							items-center
 							sm:hidden
-						"
-					></div>
-					<div
-						class="
+						"></div>
+				<div class="
 							flex-1 flex
 							items-center
 							justify-center
 							sm:items-stretch sm:justify-start
-						"
-					>
-						<div class="flex-shrink-0 flex items-center">
-							<img
-								class="h-8 w-auto sm:h-10"
-								src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-								alt=""
-							/>
-						</div>
-						<div class="hidden sm:block sm:ml-6">
-							<div class="flex space-x-4">
-								<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-								<a
-									href="#"
-									class="
+						">
+					<div class="flex-shrink-0 flex items-center">
+						<img class="h-8 w-auto sm:h-10"
+							src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
+					</div>
+					<div class="hidden sm:block sm:ml-6">
+						<div class="flex space-x-4">
+							<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+							<a href="#" class="
 										text-gray-50
 										hover:bg-indigo-500/75
 										hover:text-white
 										hover:shadow-lg
+										hover:shadow-indigo-500
 										px-3
 										py-2
 										text-lg
 										rounded-md
 										font-medium
-									"
-									>Team</a
-								>
+									">Team</a>
 
-								<a
-									href="#"
-									class="
+							<a href="#" class="
 										text-gray-50
 										hover:bg-indigo-500/75
 										hover:text-white
 										hover:shadow-lg
+										hover:shadow-indigo-500
 										px-3
 										py-2
 										text-lg
 										rounded-md
 										font-medium
-									"
-									>Report</a
-								>
+									">Report</a>
 
-								<a
-									href="#"
-									class="
+							<a href="#" class="
 										text-gray-50
 										hover:bg-indigo-500/75
 										hover:text-white
 										hover:shadow-lg
+										hover:shadow-indigo-500
 										px-3
 										py-2
 										text-lg
 										rounded-md
 										font-medium
-									"
-									>Slide</a
-								>
-							</div>
+									">Slide</a>
 						</div>
 					</div>
-					<div
-						class="
+				</div>
+				<div class="
 							absolute
 							inset-y-0
 							right-0
@@ -99,11 +84,8 @@
 							items-center
 							pr-2
 							sm:static sm:inset-auto sm:ml-6 sm:pr-0
-						"
-					>
-						<button
-							type="button"
-							class="
+						">
+					<button type="button" class="
 								p-1
 								rounded-full
 								text-gray-100
@@ -112,42 +94,33 @@
 								focus:ring-1
 								focus:ring-offset-1
 								focus:ring-white
-							"
-						>
-							<span class="sr-only">View notifications</span>
-							<!-- Heroicon name: outline/bell -->
-							<svg
-								class="h-6 w-6"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-								/>
-							</svg>
-						</button>
-					</div>
+							">
+						<span class="sr-only">View notifications</span>
+						<!-- Heroicon name: outline/bell -->
+						<svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+							stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+						</svg>
+					</button>
 				</div>
 			</div>
-		</nav>
-		<div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-			<!--Card 1-->
-			<div class="rounded overflow-hidden bg-indigo-500/80 shadow-xl hover:bg-indigo-500/40 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">
-			  <img class="w-full h-400" src="images/sort.gif" alt="Mountain">
-			  <div class="px-6 py-4">
+		</div>
+	</nav>
+	<div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+		<!--Card 1-->
+		<div
+			class="rounded-md overflow-hidden bg-indigo-500/80 shadow-xl shadow-indigo-500/60 hover:bg-indigo-500/40 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">
+			<img class="w-full h-400" src="images/sort.gif" alt="Mountain">
+			<div class="px-6 py-4">
 				<div class="font-bold text-xl mb-2 text-gray-50">Sort algorithms</div>
 				<p class="text-base text-gray-100">
-				  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+					perferendis eaque, exercitationem praesentium nihil.
 				</p>
-			  </div>
-			  <div class="flex justify-end mr-8 pb-16">
-				  <a href="Sort.html" class="
+			</div>
+			<div class="flex justify-end mr-8 pb-16">
+				<a href="Sort.html" class="
 					text-gray-50
 					bg-indigo-600
 					shadow-lg
@@ -160,18 +133,20 @@
 					rounded-md
 					font-medium
 					">Learn more</a>
-			  </div>
 			</div>
-			<!--Card 2-->
-			<div class="rounded overflow-hidden bg-indigo-500/80 shadow-xl hover:bg-indigo-500/40 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">
-			  <img class="w-full h-400" src="images/linked-list.gif" alt="River">
-			  <div class="px-6 py-4">
+		</div>
+		<!--Card 2-->
+		<div
+			class="rounded-md overflow-hidden bg-indigo-500/80 shadow-xl shadow-indigo-500/60 hover:bg-indigo-500/40 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">
+			<img class="w-full h-400" src="images/linked-list.gif" alt="River">
+			<div class="px-6 py-4">
 				<div class="font-bold text-xl mb-2 text-gray-50">Linked list data structure</div>
 				<p class="text-base text-gray-100">
-				  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+					perferendis eaque, exercitationem praesentium nihil.
 				</p>
-			  </div>
-			  <div class="flex justify-end mr-8 pt-20">
+			</div>
+			<div class="flex justify-end mr-8 pt-20">
 				<a href="QueueLL.html" class="
 				  text-gray-50
 				  bg-indigo-600
@@ -186,18 +161,20 @@
 				  font-medium
 				  ">Learn more</a>
 			</div>
-			</div>
-		
-			<!--Card 3-->
-			<div class="rounded overflow-hidden bg-indigo-500/80 shadow-xl hover:bg-indigo-500/40 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">
-			  <img class="w-full h-400 border-8 border-white" src="images/tree.gif" alt="Forest">
-			  <div class="px-6 py-4">
+		</div>
+
+		<!--Card 3-->
+		<div
+			class="rounded-md overflow-hidden bg-indigo-500/80 shadow-xl shadow-indigo-500/60 hover:bg-indigo-500/40 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">
+			<img class="w-full h-400 border-8 border-white" src="images/tree.gif" alt="Forest">
+			<div class="px-6 py-4">
 				<div class="font-bold text-xl mb-2 text-gray-50">Binary Search Tree</div>
 				<p class="text-base text-gray-100">
-				  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+					perferendis eaque, exercitationem praesentium nihil.
 				</p>
-			  </div>
-			  <div class="flex justify-end mr-8 pt-12">
+			</div>
+			<div class="flex justify-end mr-8 pt-8">
 				<a href="BST.html" class="
 				  text-gray-50
 				  bg-indigo-600
@@ -212,8 +189,9 @@
 				  font-medium
 				  ">Learn more</a>
 			</div>
-			</div>
-		  </div>
 		</div>
-	</body>
+	</div>
+	</div>
+</body>
+
 </html>
