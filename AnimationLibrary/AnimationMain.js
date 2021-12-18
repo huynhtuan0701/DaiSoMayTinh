@@ -398,8 +398,8 @@ function initCanvas()
 	sizeButton.onclick = animationManager.changeSize.bind(animationManager) ;
 	
 
-        swapButton = addControlToAnimationBar("Button", "Move Controls");
-        swapButton.onclick = swapControlDiv;	
+	swapButton = addControlToAnimationBar("Button", "Move Controls");
+	swapButton.onclick = swapControlDiv;	
 	
 	
 	animationManager.addListener("AnimationStarted", this, animStarted);
@@ -407,7 +407,7 @@ function initCanvas()
 	animationManager.addListener("AnimationWaiting", this, this.animWaiting);
 	animationManager.addListener("AnimationUndoUnavailable", this, this.anumUndoUnavailable);
 	objectManager.width = canvas.width;
-	objectManager.height = canvas.height;
+	objectManager.height = canvas.height-100;
 	return animationManager;
 }
 
@@ -608,22 +608,22 @@ function AnimationManager(objectManager)
 				else if (nextCommand.length > 3)
 				{
 					this.animatedObjects.connectEdge(parseInt(nextCommand[1]),
-                                                                         parseInt(nextCommand[2]),
-																		 this.parseColor(nextCommand[3]),
-                                                                         0.0,
-                                                                         true,
-                                                                         "",
-                                                                         0);
+													parseInt(nextCommand[2]),
+													this.parseColor(nextCommand[3]),
+													0.0,
+													true,
+													"",
+													0);
 				}
 				else
 				{
 					this.animatedObjects.connectEdge(parseInt(nextCommand[1]),
-                                                                         parseInt(nextCommand[2]),
-													                    "#000000",
-                                                                         0.0,
-                                                                         true,
-                                                                         "",
-                                                                         0);
+													parseInt(nextCommand[2]),
+													"#000000",
+													0.0,
+													true,
+													"",
+													0);
 					
 				}
 				undoBlock.push(new UndoConnect(parseInt(nextCommand[1]), parseInt (nextCommand[2]), false));
@@ -683,10 +683,10 @@ function AnimationManager(objectManager)
 
 
 				var nextAnim =  new SingleAnimation(id,
-								    this.animatedObjects.getNodeX(id), 
-								    this.animatedObjects.getNodeY(id), 
-								    newXY[0],
-								    newXY[1]);
+													this.animatedObjects.getNodeX(id), 
+													this.animatedObjects.getNodeY(id), 
+													newXY[0],
+													newXY[1]);
 				this.currentBlock.push(nextAnim);
 				undoBlock.push(new UndoMove(nextAnim.objectID, nextAnim.toX, nextAnim.toY, nextAnim.fromX, nextAnim.fromY));
 				anyAnimations = true;
