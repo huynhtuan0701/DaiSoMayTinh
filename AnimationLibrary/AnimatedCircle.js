@@ -3,7 +3,7 @@ var AnimatedCircle = function(objectID, objectLabel)
 {
 	this.objectID = objectID;
 	this.label = objectLabel;
-	this.radius = 20;
+	this.radius = 30;
 	this.thickness = 2;
 	this.x = 0;
 	this.y = 0;
@@ -77,7 +77,7 @@ AnimatedCircle.prototype.draw = function(ctx)
 	ctx.fill();
 	ctx.stroke();
 	ctx.textAlign = 'center';
-	ctx.font         = '10px sans-serif';
+	ctx.font         = '20px sans-serif';
 	ctx.textBaseline   = 'middle'; 
 	ctx.lineWidth = 1;
 	ctx.fillStyle = this.foregroundColor;

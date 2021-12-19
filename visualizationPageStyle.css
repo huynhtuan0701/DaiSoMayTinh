@@ -119,7 +119,7 @@ body {
 
 
 .VisualizationMainPage #container {
-	background: #FFFFFF;
+	/* background: #FFFFFF; */
 	text-align: left; 
 }
 
@@ -203,7 +203,7 @@ body {
 
 .VisualizationMainPage #footer { 
 	padding: 0 10px;
-    background-color: rgb(99 102 241 / 0.6);; 
+    background-color: rgb(99 102 241 / 0.6); 
 	color:#ffffff;
 } 
 .VisualizationMainPage #footer p {
@@ -215,6 +215,13 @@ body {
 	align-items: center;
 	flex-shrink: 0;
 	display: flex;
+}
+
+#footer a:hover {
+	background-color: rgb(99 102 241 / 0.75);
+	--tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 canvas {
