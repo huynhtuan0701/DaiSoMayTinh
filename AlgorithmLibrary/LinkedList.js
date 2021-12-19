@@ -93,6 +93,7 @@ LinkedList.prototype.addControls =  function()
 	this.deleteHeadButton.onclick = this.deleteHeadCallback.bind(this);
 	this.controls.push(this.deleteHeadButton);
 
+	// clear
 	this.clearButton = addControlToAlgorithmBar("Button", "Clear Linked List");
 	this.clearButton.onclick = this.clearCallback.bind(this);
 	this.controls.push(this.clearButton);
@@ -216,7 +217,7 @@ LinkedList.prototype.deleteHeadCallback = function(event)
 
 LinkedList.prototype.clearCallback = function(event)
 {
-	this.implementAction(this.clearData.bind(this), "");
+	window.location.reload();
 }
 
 
@@ -427,6 +428,13 @@ LinkedList.prototype.deleteHead = function(ignored)
 	return this.commands;
 }
 
+// LinkedList.prototype.clearData = function(ignored)
+// {
+// 	this.commands = new Array();
+
+// 	this.commands = null;
+// 	return this.commands;
+// }
 
 LinkedList.prototype.clearAll = function()
 {
