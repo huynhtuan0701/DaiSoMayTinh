@@ -18,9 +18,9 @@ var LOWER_ARRAY_LABEL_Y_POS = 510;
 
 var SCALE_FACTOR = 2.0;
 
-var ARRAY_SIZE_LARGE = 200;
-var ARRAY_WIDTH_LARGE = 4;
-var ARRAY_BAR_WIDTH_LARGE = 2;
+var ARRAY_SIZE_LARGE = 50;
+var ARRAY_WIDTH_LARGE = 18;
+var ARRAY_BAR_WIDTH_LARGE = 10;
 var ARRAY_INITIAL_X_LARGE = 15;
 
 var BAR_FOREGROUND_COLOR = "#0000FF";
@@ -75,9 +75,6 @@ Sort.prototype.addControls =  function()
 
 	this.mergeSortButton = addControlToAlgorithmBar("Button", "Merge Sort");
 	this.mergeSortButton.onclick = this.mergeSortCallback.bind(this);
-
-	this.shellSortButton = addControlToAlgorithmBar("Button", "Shell Sort");
-	this.shellSortButton.onclick = this.shellSortCallback.bind(this);
 
 	this.sizeButton = addControlToAlgorithmBar("Button", "Change Size");
 	this.sizeButton.onclick = this.changeSizeCallback.bind(this);
@@ -551,47 +548,6 @@ Sort.prototype.doMergeSort = function(low,high)
 	
 }
 
-Sort.prototype.shellSortCallback = function(event)
-{
-	this.animationManager.clearHistory();
-	
-	this.commands = new Array();
-	var inc;
-	for (inc = Math.floor(this.array_size / 2); inc >=1; inc = Math.floor(inc / 2))
-	{
-		for (var offset = 0; offset < inc; offset = offset + 1)
-		{
-			for (var k = 0; k < this.array_size; k++)
-			{
-				if ((k - offset) % inc == 0)
-				{
-					if (this.obscureObject[k])
-					{
-						this.obscureObject[k] = false;
-						this.cmd("SetAlpha", this.barObjects[k], 1.0);
-						this.cmd("SetAlpha", this.barLabels[k], 1.0);
-					}
-					
-				}
-				else
-				{
-					if (!this.obscureObject[k])
-					{
-						this.obscureObject[k] = true;
-						this.cmd("SetAlpha", this.barObjects[k], 0.08);
-						this.cmd("SetAlpha", this.barLabels[k], 0.08);
-					}
-				}												
-			}
-			this.cmd("Step");
-			this.insertionSortSkip(inc, offset)
-			
-		}
-		
-	}
-	this.animationManager.StartNewAnimation(this.commands);
-	
-}
 
 Sort.prototype.insertionSortSkip = function(inc, offset)
 {
@@ -632,7 +588,6 @@ Sort.prototype.disableUI = function(event)
 	this.bubbleSortButton.disabled = true;
 	this.quickSortButton.disabled = true;
 	this.mergeSortButton.disabled = true;
-	this.shellSortButton.disabled = true;
 	this.sizeButton.disabled = true;
 }
 Sort.prototype.enableUI = function(event)
@@ -643,7 +598,6 @@ Sort.prototype.enableUI = function(event)
 	this.bubbleSortButton.disabled = false;
 	this.quickSortButton.disabled = false;
 	this.mergeSortButton.disabled = false;
-	this.shellSortButton.disabled = false;
 	this.sizeButton.disabled = false;
 }
 

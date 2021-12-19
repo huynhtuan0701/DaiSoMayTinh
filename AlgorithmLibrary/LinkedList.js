@@ -71,6 +71,23 @@ LinkedList.prototype.addControls =  function()
 	this.controls.push(this.addTailField);
 	this.controls.push(this.addTailButton);
 
+	// AddAfterQ
+	this.addAfterQField = addControlToAlgorithmBar("Text", "");
+	this.QField = addControlToAlgorithmBar("Text", "");
+	this.addAfterQField.onkeydown = this.returnSubmit(this.addAfterQField, this.addAfterQCallback.bind(this), 6);
+	// console.log(this.addAfterQCallback())
+
+	this.QField.onkeydown = this.returnSubmit(this.QField, this.QCallback.bind(this), 6);
+	// console.log(this.addAfterQCallback())
+
+	this.addAfterQButton = addControlToAlgorithmBar("Button", "AddAfterQ");
+	this.addAfterQButton.onclick = this.addAfterQCallback.bind(this);
+	console.log(this.addAfterQCallback())
+	// this.addAfterQButton.onclick = this.QCallback.bind(this);
+	this.controls.push(this.addAfterQField);
+	this.controls.push(this.QField);
+	this.controls.push(this.addAfterQButton);
+
     // DeleteHead
 	this.deleteHeadButton = addControlToAlgorithmBar("Button", "DeleteHead");
 	this.deleteHeadButton.onclick = this.deleteHeadCallback.bind(this);
@@ -165,6 +182,26 @@ LinkedList.prototype.addTailCallback = function(event)
 		var pushVal = this.addTailField.value;
 		this.addTailField.value = ""
 		this.implementAction(this.addTail.bind(this), pushVal);
+	}
+}	
+
+LinkedList.prototype.addAfterQCallback = function(event)
+{
+	if (this.top < SIZE && this.addAFterQField.value != "")
+	{
+		var pushVal = this.addAfterQField.value;
+		this.addAfterQField.value = ""
+		this.implementAction(this.addAfterQ.bind(this), pushVal);
+	}
+}	
+
+LinkedList.prototype.QCallback = function(event)
+{
+	if (this.top < SIZE && this.QField.value != "")
+	{
+		var pushVal = this.QField.value;
+		this.QField.value = ""
+		this.implementAction(this.addAfterQ.bind(this), pushVal);
 	}
 }	
 
@@ -283,6 +320,64 @@ LinkedList.prototype.addTail = function(elemToPush)
 		this.cmd("Disconnect", this.tailID, this.linkedListElemID[1]);
 	}
 	this.cmd("Connect", this.tailID, this.linkedListElemID[0]);
+
+	this.cmd("Step");
+	this.top = this.top + 1;
+	this.resetLinkedListPositions();
+	this.cmd("Delete", labPushID);
+	this.cmd("Step");
+
+	return this.commands;
+}
+
+LinkedList.prototype.addAfterQ = function(elemToPush, indexToPush)
+{
+	this.commands = new Array();
+
+	this.arrayData[this.top] = elemToPush;
+
+	this.cmd("SetText", this.leftoverLabelID, "");
+
+	for (var i  = this.top; i > indexToPush; i--)
+	{
+		this.arrayData[i] = this.arrayData[i-1];
+		this.linkedListElemID[i] =this.linkedListElemID[i-1];
+	}
+	this.arrayData[indexToPush] = elemToPush;
+	this.linkedListElemID[indexToPush] = this.nextIndex++;
+
+	var labPushID = this.nextIndex++;
+	var labPushValID = this.nextIndex++;
+	this.cmd("CreateLinkedList",this.linkedListElemID[indexToPush], "" ,LINKED_LIST_ELEM_WIDTH, LINKED_LIST_ELEM_HEIGHT, 
+		LINKED_LIST_INSERT_X, LINKED_LIST_INSERT_Y, 0.25, 0, 1, 1);
+
+	this.cmd("SetNull", this.linkedListElemID[indexToPush], 1);
+	this.cmd("CreateLabel", labPushID, "Adding Value: ", PUSH_LABEL_X, PUSH_LABEL_Y);
+	this.cmd("CreateLabel", labPushValID, elemToPush, PUSH_ELEMENT_X, PUSH_ELEMENT_Y);
+
+	this.cmd("Step");
+
+	this.cmd("Move", labPushValID, LINKED_LIST_INSERT_X, LINKED_LIST_INSERT_Y);
+
+	this.cmd("Step");
+	this.cmd("SetText", this.linkedListElemID[indexToPush], elemToPush);
+	this.cmd("Delete", labPushValID);
+
+	if (this.top == 0)
+	{
+		this.cmd("SetNull", this.headID, 0);
+		this.cmd("SetNull", this.tailID, 0);
+		this.cmd("connect", this.headID, this.linkedListElemID[this.top]);
+		this.cmd("connect", this.tailID, this.linkedListElemID[this.top]);
+	}
+	else
+	{
+		this.cmd("SetNull", this.linkedListElemID[indexToPush+1], 0);
+		this.cmd("Connect",  this.linkedListElemID[indexToPush+1], this.linkedListElemID[indexToPush]);
+		this.cmd("Step");
+		// this.cmd("Disconnect", this.tailID, this.linkedListElemID[1]);
+	}
+	this.cmd("Connect", this.linkedListElemID[indexToPush], this.linkedListElemID[indexToPush-1]);
 
 	this.cmd("Step");
 	this.top = this.top + 1;

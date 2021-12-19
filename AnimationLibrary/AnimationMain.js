@@ -407,7 +407,7 @@ function initCanvas()
 	animationManager.addListener("AnimationWaiting", this, this.animWaiting);
 	animationManager.addListener("AnimationUndoUnavailable", this, this.anumUndoUnavailable);
 	objectManager.width = canvas.width;
-	objectManager.height = canvas.height;
+	objectManager.height = canvas.height-100;
 	return animationManager;
 }
 
