@@ -10,7 +10,7 @@ BST.STARTING_Y = 50;
 
 
 BST.FIRST_PRINT_POS_X  = 50;
-BST.PRINT_VERTICAL_GAP  = 20;
+BST.PRINT_VERTICAL_GAP  = 80;
 BST.PRINT_HORIZONTAL_GAP = 50;
 
 
@@ -70,9 +70,9 @@ BST.prototype.reset = function()
 
 BST.prototype.insertCallback = function(event)
 {
-	var insertedValue = this.insertField.value;
+	var insertedValue = parseInt(this.insertField.value);
 	// Get text value
-	insertedValue = this.normalizeNumber(insertedValue, 4);
+	// insertedValue = this.normalizeNumber(insertedValue, 4);
 	if (insertedValue != "")
 	{
 		// set text value
