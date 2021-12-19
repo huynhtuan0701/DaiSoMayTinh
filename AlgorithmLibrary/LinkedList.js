@@ -1,5 +1,5 @@
 ﻿var LINKED_LIST_START_X = 100;
-var LINKED_LIST_START_Y = 200;
+var LINKED_LIST_START_Y = 300;
 var LINKED_LIST_ELEM_WIDTH = 70;
 var LINKED_LIST_ELEM_HEIGHT = 30;
 
@@ -21,9 +21,9 @@ var TOP_ELEM_HEIGHT = 30;
 var TAIL_POS_X = 180;
 var TAIL_LABEL_X = 130;
 
-var PUSH_LABEL_X = 50;
+var PUSH_LABEL_X = 100;
 var PUSH_LABEL_Y = 30;
-var PUSH_ELEMENT_X = 120;
+var PUSH_ELEMENT_X = 200;
 var PUSH_ELEMENT_Y = 30;
 
 var SIZE = 32;
@@ -44,7 +44,7 @@ LinkedList.prototype.init = function(am, w, h)
 	this.addControls();
 	this.nextIndex = 0;
 	this.commands = [];
-	this.tail_pos_y = h - LINKED_LIST_ELEM_HEIGHT;
+	this.tail_pos_y = h - LINKED_LIST_ELEM_HEIGHT - 200;
 	this.tail_label_y = this.tail_pos_y;
 	this.setup();
 	this.initialIndex = this.nextIndex;
